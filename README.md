@@ -1,53 +1,56 @@
-# Aria - Local Music Streaming App
+# 🎵 Aria - Music Streaming Platform
 
-## Overview
-Aria is a local-only music streaming web application inspired by Spotify and Apple Music. It allows users to browse, play, upload, and mix vocal/instrumental stems of tracks, all running locally with no external services.
+**Simple setup instructions for running this project**
 
-## Tech Stack
-- **Backend:** Node.js + Express
-- **Database:** SQLite (file-based, local)
-- **Frontend:** React (Create React App)
-- **Authentication:** Session-based (express-session)
-- **File Storage:** Local filesystem under `/uploads/instruments` and `/uploads/vocals`
+## 📋 What You Need
+1. **Node.js** - Download from https://nodejs.org (get the LTS version)
+2. That's it! Everything else is included in this zip.
 
-## Setup Instructions
+## 🚀 How to Run
 
-### 1. Install dependencies
-```sh
-npm install
-cd server && npm install
-cd ../client && npm install
+### Step 1: Extract the zip file
+Extract this zip to any folder on your computer.
+
+### Step 2: Open terminal/command prompt
+- **Windows**: Right-click in the Aria folder → "Open in Terminal" or "Open PowerShell window here"
+- **Mac/Linux**: Open terminal and navigate to the Aria folder
+
+### Step 3: Start the server
+```bash
+cd server
+npm start
 ```
 
-### 2. Run database migrations and seed data
-```sh
-cd ../server
-npm run migrate
-npm run seed
-```
+### Step 4: Open your browser
+Go to: **http://localhost:5000**
 
-### 3. Start the app (concurrently runs backend and frontend)
-```sh
-cd ..
-npm run dev
-```
+## ✅ That's it! 
+The app should now be running. You can:
+- Register a new account
+- Browse and play music
+- Create playlists  
+- Upload your own tracks
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
+## 🎛️ Features
+- Music streaming with vocal/instrumental separation
+- User accounts and playlists
+- File uploads (MP3 format)
+- Responsive design
 
-## Scripts
-- `npm run dev` — Runs both client and server in development mode
-- `npm run migrate` — Runs DB migrations
-- `npm run seed` — Seeds the database with sample data
+## 📁 What's Included
+- ✅ All source code (React frontend + Node.js backend)
+- ✅ All dependencies (node_modules)
+- ✅ Database with sample data
+- ✅ Sample music files
+- ✅ Built frontend (ready to serve)
 
-## API Endpoints
+## 🆘 Troubleshooting
+- **Port 5000 in use?** The app will automatically use a different port
+- **Node.js not found?** Make sure you installed Node.js from nodejs.org
+- **Need help?** Check the console/terminal for error messages
 
-### Auth
-- `POST /api/auth/signup` — Register
-- `POST /api/auth/login` — Login
-- `POST /api/auth/logout` — Logout
-
-### Tracks
+---
+*Everything is pre-configured and ready to run!*
 - `GET /api/tracks` — List/search tracks
 - `POST /api/tracks` — Upload new track (multipart/form-data)
 
