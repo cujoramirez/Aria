@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Audio Test</title>
+</head>
+
+<body>
+    <h1>Direct Audio Test</h1>
+
+    <h2>Test 1: Direct Audio Element</h2>
+    <audio id="test1" controls>
+        <source src="http://localhost:5000/assets/Goo%20Goo%20Dolls%20-%20Iris%20(Karaoke%20Version).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Test 2: JavaScript Audio</h2>
+    <button onclick="testAudio()">Test Audio via JavaScript</button>
+    <div id="result"></div>
+
+    <script>
+        function testAudio() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Testing...';
+
+            const audio = new Audio();
+            audio.addEventListener('loadstart', () => {
+                result.innerHTML += '<br>✅ Load started';
+            });
+            audio.addEventListener('canplay', () => {
+                result.innerHTML += '<br>✅ Can play';
+            });
+            audio.addEventListener('error', (e) => {
+                result.innerHTML += '<br>❌ Error: ' + e.message;
+                console.error('Audio error:', e, audio.error);
+            });
+
+            audio.src = 'http://localhost:5000/assets/Goo%20Goo%20Dolls%20-%20Iris%20(Karaoke%20Version).mp3';
+            audio.load();
+        }
+    </script>
+</body>
+
+</html>
